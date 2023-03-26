@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Liste des rendez-vous</h1>
+    <div style="display: flex;">
+        {% for rdv in rendezvous %}
+            <div style="display: flex; width: 75%; flex-direction: column; justify-content: center; margin: auto; border: solid 1px gray; text-align: center; max-width: 550px;">
+                <small class="text-success mt-3 mb-3">{{ rdv.date }}</small>
+                <img src="{{ rdv.img.url }}" style="width: 100%; max-width: 550px;" alt="">
+                <h1>{{ rdv.nom }}</h1>
+
+                <h3 class="text-primary"> {{ rdv.personne }}</h3>
+                <p class="text-info">{{ rdv.telephone }}</p>
+                <p class="text-warning">{{ rdv.commentaire }}</p>
+                <p> {{ rdv.date }} - {{ rdv.description }}</p>
+                <a href="{% url 'detail' rdv.slug %}" class="btn btn-primary">Détails</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card mb-5">
+                    <img src="{{ rdv.img.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ rdv.nom }}</h5>
+                        <p class="card-text">{{ rdv.description }}</p>
+                        <ul class="list-unstyled">
+                            <li><strong>Personne : </strong>{{ rdv.personne }}</li>
+                            <li><strong>Téléphone : </strong>{{ rdv.telephone }}</li>
+                            <li><strong>Email : </strong>{{ rdv.email }}</li>
+                            <li><strong>Date : </strong>{{ rdv.date }}</li>
+                            <li><strong>Commentaire : </strong>{{ rdv.commentaire }}</li>
+                        </ul>
+                        <a href="{% url 'detail' rdv.slug %}" class="btn btn-primary">Voir plus de détails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
