@@ -15,9 +15,9 @@
         <tbody>
             {% for task in tasks %}
                 <tr>
-                    <td>{{ task.title }}</td>
+                    <td class="text-info">{{ task.title }}</td>
                     <td>{{ task.description }}</td>
-                    <td>{{ task.deadline }}</td>
+                    <td class="text-warning">{{ task.due_date }}</td>
                     <td>{% if task.completed %}Terminée{% else %}En cours{% endif %}</td>
                     <td>
                         <a href="#" class="btn btn-primary btn-sm">Modifier</a>
