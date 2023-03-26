@@ -1,11 +1,15 @@
 from django.shortcuts import render, get_object_or_404
+
+from notification.models import Notification
 from .models import RendezVous
 
 
 def liste_rendezvous(request):
     rendezvous = RendezVous.objects.all()
+    notifications = Notification.objects.all()
     context = {
         'rendezvous': rendezvous,
+        'notifications':notifications,
     }
     return render(request, 'liste_rendez-vous.html', context)
 

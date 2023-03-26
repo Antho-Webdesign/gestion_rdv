@@ -1,6 +1,6 @@
 from django.urls import path
 
-from notification.views import send_notification
+from notification.views import send_notification, list_notification
 from tasks.views import task_list
 from .views import liste_rendezvous, detail_rendezvous
 
@@ -10,5 +10,7 @@ urlpatterns = [
 
     path('tasks/', task_list, name='tasks'),
     path('send-notification/', send_notification, name='send_notification'),
+
+    path('list-notification/', list_notification, name='list_notification'),
 
 ]

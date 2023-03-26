@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+
+<!-- Afficher une icône avec une classe conditionnelle -->
+{% if notification.est_passe %}
+  <i class="fas fa-bell fa-lg text-danger"></i>
+{% else %}
+  <i class="fas fa-bell fa-lg"></i>
+{% endif %}
+
     <h1>Liste des rendez-vous</h1>
     <a class="btn btn-secondary" href="{% url 'send_notification' %}">notif</a>
      <a class="btn btn-secondary" href="{% url 'tasks' %}">Task</a>
