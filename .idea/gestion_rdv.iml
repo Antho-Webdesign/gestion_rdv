@@ -30,6 +30,7 @@
         <option value="$MODULE_DIR$/gestion_rdv/templates" />
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/tasks/templates" />
+        <option value="$MODULE_DIR$/notifications/templates" />
       </list>
     </option>
   </component>
