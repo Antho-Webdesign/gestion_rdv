@@ -13,6 +13,8 @@
     <h1>Liste des rendez-vous</h1>
     <a class="btn btn-secondary" href="{% url 'send_notification' %}">notif</a>
      <a class="btn btn-secondary" href="{% url 'tasks' %}">Task</a>
+
+    <a class="btn btn-secondary" href="{% url 'voice_assistant' %}">voice</a>
     <div style="display: flex;">
         {% for rdv in rendezvous %}
             <div style="display: flex; width: 75%; flex-direction: column; justify-content: center; margin: auto; border: solid 1px gray; text-align: center; max-width: 550px;">
