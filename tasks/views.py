@@ -4,6 +4,7 @@ import datetime
 import pyttsx3 as ttx
 import pywhatkit
 import speech_recognition as sr
+import voix
 from django.shortcuts import render
 from django.views import View
 
@@ -25,6 +26,7 @@ class VoiceAssistant(View):
     def parler(self, text):
         self.engine.say(text)
         self.engine.runAndWait()
+        self.listener.recognize_google(voix, language='fr-FR')
 
     def ecouter(self, request):
         with contextlib.suppress(Exception):
@@ -50,7 +52,7 @@ class VoiceAssistant(View):
                 return render(request, 'voice_assistant.html', {'response': f'il est {heure}'})
             elif 'Bonjour' in command:
                 return render(request, 'voice_assistant.html', {'response': 'bonjour, ca va?'})
-            elif 'ajoute une tache' in command:
+            elif 'add' in command:
                 title = command.replace('ajoute une tache intitulee', '')
                 Task.objects.create(title=title, description='', due_date=datetime.datetime.now())
                 return render(request, 'voice_assistant.html', {'response': f'la tache {title} a ete ajoutee'})
@@ -63,4 +65,3 @@ class VoiceAssistant(View):
 
     def post(self, request):
         return self.lancer_assistant(request)
-
